@@ -1,26 +1,26 @@
-name: IMRAN-BOT
+name: Imran Bot
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  run-bot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: "20"
 
-      - name: Install dependencies
+      - name: Install Packages
         run: npm install
 
-      - name: IMRAN-BOT
+      - name: Start Bot
         run: npm start
